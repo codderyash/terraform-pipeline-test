@@ -12,6 +12,11 @@ pipeline {
                 bat 'terraform init -reconfigure'
             }
         }
+        stage('plan'){
+            steps{
+                bat 'terraform plan'
+            }
+        }
        
     }
 }
