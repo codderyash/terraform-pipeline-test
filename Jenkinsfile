@@ -7,20 +7,11 @@ pipeline {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yashsa-fens/terraform-pipeline.git']])
             }
         }
-        stage('init'){
+        stage('run script'){
             steps{
-                bat 'terraform init -reconfigure'
+                sh 'script.sh all plan'
             }
         }
-        stage('plan'){
-            steps{
-                bat 'terraform plan'
-            }
-        }
-       stage('destroy'){
-           steps{
-               bat 'terraform destroy -auto-approve'
-           }
-       }
+       
     }
 }
