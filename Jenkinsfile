@@ -13,9 +13,16 @@ pipeline {
             }
         }
         stage('run bash script'){
-            steps{
-                bat 'script.sh ${params.val1} ${params.val2}'
-            }
+            script {
+                    def scriptOutput = sh(script: './script.sh', returnStdout: true).trim()
+                    echo "Script output:\n${scriptOutput}"
+                }
+        }
+        stage('Give input'){
+          script{
+              echo "${params.val1}"
+              echo "${params.val2}"
+          }
             
         }
        
