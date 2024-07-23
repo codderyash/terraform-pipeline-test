@@ -16,7 +16,8 @@ pipeline {
             steps{
                 script {
                     def scriptOutput = bat(script: 'script.sh', returnStdout: true).trim()
-                    echo "Script output:\n${scriptOutput}"
+                      echo "${params.val1}"
+                      echo "${params.val2}"
                 }
             }
             
