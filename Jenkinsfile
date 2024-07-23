@@ -9,7 +9,7 @@ pipeline {
         }
         stage('run script'){
             steps{
-                sh 'script.sh all plan'
+                bat 'script.sh all plan'
             }
         }
        
