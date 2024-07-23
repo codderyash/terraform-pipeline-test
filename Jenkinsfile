@@ -13,16 +13,22 @@ pipeline {
             }
         }
         stage('run bash script'){
-            script {
+            steps{
+                script {
                     def scriptOutput = sh(script: './script.sh', returnStdout: true).trim()
                     echo "Script output:\n${scriptOutput}"
                 }
+            }
+            
         }
         stage('Give input'){
-          script{
-              echo "${params.val1}"
-              echo "${params.val2}"
-          }
+            steps{
+                 script{
+                      echo "${params.val1}"
+                      echo "${params.val2}"
+                  }
+            }
+         
             
         }
        
