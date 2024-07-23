@@ -15,7 +15,7 @@ pipeline {
         stage('run bash script'){
             steps{
                 script {
-                    def scriptOutput = bat(script: './script.sh', returnStdout: true).trim()
+                    def scriptOutput = bat(script: 'script.sh', returnStdout: true).trim()
                     echo "Script output:\n${scriptOutput}"
                 }
             }
