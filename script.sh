@@ -1,6 +1,11 @@
 #!/bin/bash
 
-declare -a modules=("iam_user_all_rules_violation" )
+# Declare the modules array with all modules
+declare -a modules=("iam_user_all_rules_violation")
+
+module=$1
+action=$2
+
 
 # Function to run the terraform command
 run_terraform() {
@@ -30,19 +35,21 @@ validate_module() {
     return 1
 }
 
+# Read the modules and run the terraform action based on user input
 for index in "${!modules[@]}"; do
     echo "Module $index: ${modules[$index]}"
 done
 
-read -p "Enter module number to run (comma-separated, or 'all' for all modules): " input_modules
+# read -p "Enter module number to run (comma-separated, or 'all' for all modules): " input_modules
 
 # Convert comma-separated input to array
-IFS=', ' read -r -a selected_modules <<<"$input_modules"
+IFS=', ' read -r -a selected_modules <<<"$module"
 
-read -p "Enter action (apply / destroy / plan): " action
+# Read user input for action
+# read -p "Enter action (apply / destroy / plan): " action
 
 if [ -z $action ]; then
-    $action="apply"
+    $action="plan"
 fi
 
 # Run terraform init command
@@ -54,6 +61,7 @@ if [ -z $selected_modules ]; then
     done
 fi
 
+# Iterate over the selected modules and run the corresponding terraform action
 for module in "${selected_modules[@]}"; do
     if [ "$module" == "all" ]; then
         for m in "${modules[@]}"; do
