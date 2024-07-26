@@ -29,7 +29,7 @@ resource "tls_self_signed_cert" "example" {
 
 # For example, this can be used to populate an AWS IAM server certificate.
 resource "aws_iam_server_certificate" "example" {
-  name             = "some_test_cert"
+  name             = "some_test_cert_4"
   certificate_body = tls_self_signed_cert.example.cert_pem
   private_key      = tls_private_key.example.private_key_pem
   depends_on = [ tls_self_signed_cert.example ]

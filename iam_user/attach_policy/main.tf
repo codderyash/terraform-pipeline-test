@@ -1,6 +1,6 @@
 
 resource "aws_iam_user_policy" "example_policy" {
-  name   = "example-policy"
+  name   = "example-policy-3"
   user   = var.users
   policy = <<EOF
   {

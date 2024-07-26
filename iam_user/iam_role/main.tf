@@ -1,5 +1,5 @@
 resource "aws_iam_role" "example_role" {
-  name = "example-role-2"
+  name = "example-role-3"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -13,7 +13,7 @@ resource "aws_iam_role" "example_role" {
 }
 
 resource "aws_iam_policy" "example_policy" {
-  name        = "example-policy-2"
+  name        = "example-policy-4"
   description = "An example IAM policy"
 
   policy = <<EOF

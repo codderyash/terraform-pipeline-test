@@ -1,8 +1,8 @@
 access_key = ""
 secret_key = ""
 users = {
-  "yash.sarvaiya" = {
-    "name" = "yash-sarvaiya"
+  "yash.sarvaiya1" = {
+    "name" = "yash-sarvaiya1"
       "email"="yash.sarvaiya@gmail.com"   
   }
 }
