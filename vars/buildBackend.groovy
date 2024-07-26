@@ -81,7 +81,7 @@ def call(body) {
       
         stage("Run bash script"){
 
-                    def output = bat(returnStdout: true, script: 'script.sh')
+                    def output = bat(returnStdout: true, script: 'script.sh all apply')
                     echo "Output: ${output}"
                 
         }
