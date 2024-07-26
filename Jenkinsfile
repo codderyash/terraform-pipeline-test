@@ -11,7 +11,7 @@ pipeline {
         }
         stage('run bash script'){
             steps{
-                bat 'script.sh all apply'
+                bat 'script.sh all destroy'
             }
             
         }
