@@ -7,9 +7,15 @@ pipeline {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yashsa-fens/terraform-pipeline.git']])
             }
         }
-        stage('run bash script'){
+        stage('init'){
             steps{
-                bat 'script.sh all apply'
+                bat 'terraform init'
+            }
+            
+        }
+        stage('apply'){
+            steps{
+                bat 'terraform apply -auto-approve'
             }
             
         }
