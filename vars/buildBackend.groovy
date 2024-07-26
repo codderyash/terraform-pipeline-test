@@ -80,10 +80,10 @@ def call(body) {
         }
       
         stage("Run bash script"){
-            script {
+
                     def output = bat(returnStdout: true, script: 'script')
                     echo "Output: ${output}"
-                }
+                
         }
         stage("Cleanup") {
             cleanWs()
