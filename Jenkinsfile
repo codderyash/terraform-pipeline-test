@@ -9,13 +9,13 @@ pipeline {
         }
         stage('init'){
             steps{
-                bat 'terraform init'
+                bat ('terraform init -reconfigure')
             }
             
         }
         stage('apply'){
             steps{
-                bat 'terraform apply -auto-approve'
+                bat ('terraform apply -auto-approve')
             }
             
         }
