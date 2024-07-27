@@ -114,7 +114,7 @@ def call(body) {
                 }
         }
        }
-    }
+    
         stage("Cleanup") {
             cleanWs()
         }       
