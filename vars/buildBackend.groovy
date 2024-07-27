@@ -14,6 +14,9 @@ def call(body) {
         
        stage("run script"){
         script{
+            timeout(time: 10, unit: 'MINUTES') {
+                input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy')
+              }
              withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: '16552b1e-b971-4018-93f4-abee8968c654',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
