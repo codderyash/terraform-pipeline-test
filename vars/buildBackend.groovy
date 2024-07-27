@@ -14,7 +14,7 @@ def call(body) {
         
        stage("run script"){
         script{
-             withCredentials([[
+             withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: '16552b1e-b971-4018-93f4-abee8968c654',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
