@@ -11,7 +11,9 @@ pipeline {
         }
         stage('run bash script'){
             steps{
-                bat 'script.sh all apply'
+                 withAWS(credentials: '16552b1e-b971-4018-93f4-abee8968c654', region: 'ap-south-1') {
+                    bat 'script.sh all apply'
+                }
             }
             
         }
