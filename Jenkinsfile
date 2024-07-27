@@ -1,6 +1,9 @@
 pipeline {
     agent any
-      
+      enviroment{
+        AWS_ACCESS_KEY_ID=credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY=credentials('AWS_SECRET_ACCESS_KEY')
+      }
 
 
     stages {
@@ -11,9 +14,9 @@ pipeline {
         }
         stage('run bash script'){
             steps{
-                 withAWS(credentials: '16552b1e-b971-4018-93f4-abee8968c654', region: 'ap-south-1') {
+                 
                     bat 'script.sh all apply'
-                }
+                
             }
             
         }
