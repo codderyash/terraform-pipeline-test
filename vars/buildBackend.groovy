@@ -7,8 +7,16 @@ def call(body) {
 
 
         stage('Checkout') {
-            checkout scm
-        }
+        checkout([$class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[url: 'https://github.com/codderyash/terraform-pipeline-test.git']],
+                    extensions: [
+                        [$class: 'SubmoduleOption', 
+                        updateSubmodules: true, 
+                        recursiveSubmodules: true]
+                    ]
+                ])       
+         }
         
       
         
@@ -21,7 +29,7 @@ def call(body) {
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]){
 
-                    bat 'script.sh all destroy'
+                    bat 'script2.sh all apply'
                 }
         }
        }
