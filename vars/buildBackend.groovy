@@ -23,14 +23,18 @@ def call(body) {
        stage("run script"){
         script{
             input "Do you want to deploy all resources to aws?"
-             withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',
+
+            dir('terraform-pipeline-tst-2'){
+  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: '16552b1e-b971-4018-93f4-abee8968c654',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]){
-                    cd 'terraform-pipeline-test-2'
+                  
                     bat 'script2.sh all apply'
                 }
+            }
+           
         }
        }
     
