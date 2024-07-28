@@ -31,7 +31,7 @@ def call(body) {
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]){
                   
-                    bat 'script2.sh all apply'
+                    bat 'script2.sh all destroy'
                 }
             }
            
