@@ -28,8 +28,8 @@ def call(body) {
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]){
-
-                    bat './terraform-pipeline-test-2/script2.sh all apply'
+                    cd 'terraform-pipeline-test-2'
+                    bat 'script2.sh all apply'
                 }
         }
        }
