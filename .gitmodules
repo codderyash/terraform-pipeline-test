@@ -1,0 +1,3 @@
+[submodule "terraform-pipeline-test-2"]
+	path = terraform-pipeline-test-2
+	url = https://github.com/codderyash/terraform-pipeline-test-2.git
